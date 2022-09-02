@@ -1,0 +1,15 @@
+@import './colors.scss';
+
+.cabecalho{
+  background-color: $green-300;
+  height: 4.5rem;
+  text-align: center;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width:8.75rem;
+  }
+
+}
