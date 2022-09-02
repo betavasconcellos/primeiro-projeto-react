@@ -1,6 +1,6 @@
-@import './colors.scss';
+@import '../colors.scss';
 
-.cabecalho{
+header {
   background-color: $green-300;
   height: 4.5rem;
   text-align: center;

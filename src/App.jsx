@@ -1,13 +1,9 @@
 import './assets/global.scss';
-import './assets/cabecalho.scss';
-
-import logoSvg from './assets/logo.svg';
+import Header from './assets/components/Header';
 
 function App() {
   return (
-  <header className='cabecalho'>
-    <img src={logoSvg} alt="Logo do App" />
-  </header>
+  <Header />
   )
 }
 
