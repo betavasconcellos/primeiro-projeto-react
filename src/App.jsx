@@ -7,19 +7,29 @@ import { Header } from './assets/components/Header';
 import { Task } from './assets/components/Task';
 import { Plus } from 'phosphor-react';
 
-export function App() {
+function App() {
   const [taskText, setTaskText] = useState('');
-  const[tasks,setTasks] = useState([]);
+  const [tasks, setTasks] = useState([]);
+
+  const [taskDate, setTaskDate] = useState('');
+  const [dates, setDates] = useState([]);
 
   function handleSubmit(event) {
     event.preventDefault();
 
     setTasks([...tasks, taskText]);
     setTaskText('');
+
+    setDates([...dates, taskDate]);
+    setTaskDate('');
   }
 
-  function handleChangeInput(event){
-    setTaskText(event.currentTarget.value);
+  function handleChangeInputText(text) {
+    setTaskText(text.currentTarget.value);
+  }
+
+  function handleChangeInputDate(date) {
+    setTaskDate(date.currentTarget.value);
   }
 
 
@@ -28,15 +38,23 @@ export function App() {
       <Header />
       <main className={styles.container}>
         <form className={styles.addTaskForm} onSubmit={handleSubmit}>
-          <input type="text" placeholder="Insira uma nova atividade" value={taskText} onChange={handleChangeInput}/>
+          <input type="text" placeholder="Insira uma nova atividade" value={taskText} onChange={handleChangeInputText} />
+          <input type="date" className={styles.inputDate} placeholder="Insira a data limite" value={taskDate} onChange={handleChangeInputDate} />
           <button><Plus /></button>
         </form>
 
         <h3 className={styles.status}>Tarefas Concluídas <span>3 de 6</span></h3>
         <ul className={styles.taskList}>
-          {tasks.map(task => {
-            return <Task content={task}/>
+
+
+          {tasks.map((task) => {
+            return <Task content={task} />
           })}
+          
+          {dates.map((date) => {
+            return <Task content={date} />
+          })}
+           
         </ul>
       </main>
 
@@ -44,3 +62,5 @@ export function App() {
     </>
   )
 }
+
+export default App;

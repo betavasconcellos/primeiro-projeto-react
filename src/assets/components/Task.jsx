@@ -2,7 +2,7 @@ import styles from './Task.module.scss';
 
 import { Trash, Check } from 'phosphor-react';
 
-export function Task(props) {
+export function Task(text, date) {
   return (
     <li className={styles.task}>
       <label>
@@ -12,8 +12,13 @@ export function Task(props) {
         </span>
       </label>
       <p>
-        {props.content}
+        {text.content}
       </p>
+      <p> 
+        {date.content}
+      </p>
+
+
 
       <button>
         <Trash />
