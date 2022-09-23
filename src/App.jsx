@@ -17,6 +17,12 @@ function App() {
   function handleSubmit(event) {
     event.preventDefault();
 
+const newTask = {
+  id: Date.now(),
+  content: taskText,
+  done: false,
+}
+
     setTasks([...tasks, taskText]);
     setTaskText('');
 
@@ -47,13 +53,13 @@ function App() {
         <ul className={styles.taskList}>
 
 
-          {tasks.map((task) => {
-            return <Task content={task} />
+        {tasks.map((task) => {
+              return <Task content={task} />
+          })}
+            {dates.map((date) => {
+              return <Task content={date} />
           })}
           
-          {dates.map((date) => {
-            return <Task content={date} />
-          })}
            
         </ul>
       </main>
